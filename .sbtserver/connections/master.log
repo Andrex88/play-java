@@ -1,0 +1,10 @@
+New log file opened at Mon Sep 28 14:01:31 COT 2015 by 4772@CRISTIANPALACIO
+Taking next connection to: 59856
+New client attempting to connect on port: 59857-59856
+  Address = /10.0.1.225:59856
+This client on port 59857 has uuid e5b89e53-3fb3-4169-a3ef-3c5d5a6ad7b7 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-e5b89e53-3fb3-4169-a3ef-3c5d5a6ad7b7
+Taking next connection to: 59856
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 59856

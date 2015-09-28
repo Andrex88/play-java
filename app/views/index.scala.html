@@ -1,0 +1,47 @@
+@(Lusers: List[users], userForm: Form[users])
+
+@import helper._
+
+<html>
+<head>
+    <title>titulo</title>
+    <link href="development/prime-ui-0.9.5.css" rel="stylesheet">
+    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <link href="http://www.primefaces.org/prime-ui/demo/css/aristo/theme.css" rel="stylesheet">
+    <link href="http://www.primefaces.org/prime-ui/demo/css/sh.css" rel="stylesheet">
+    <link href="http://www.primefaces.org/css/all.css" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript" src="development/prime-ui-0.9.5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body>
+<h1>Crear nuevo usuario</h1>
+
+@form(routes.Application.nuevoUsuario()) {
+
+@inputText(userForm("user_id"))
+@inputText(userForm("fname"))
+@inputText(userForm("lname"))
+
+<input type="submit" value="Crear">
+<input type="reset" value="Cancelar" onclick="location.href='http://localhost:9000/'"/>
+}
+
+<h2>@Lusers.size() usuario(s)</h2>
+
+<ul>
+    @for(users <- Lusers) {
+    <li>
+        @users.fname - @users.lname
+        @form(routes.Application.deleteUsuario(users.user_id)) {
+        <input type="submit" value="Borrar"/>
+        }
+        @form(routes.Application.seleccionarUsuario(users.user_id)) {
+        <input type="submit" value="Editar"/>
+        }
+    </li>
+    }
+</ul>
+</body>
+</html>
